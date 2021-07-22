@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package domain;
+
+option go_package = "github.com/kyawmyintthein/rzcfg/protopb/domain";
+
+message Event {
+	string eventType  = 1;
+    int64 version = 2;
+    int64 timestamp = 3;
+}

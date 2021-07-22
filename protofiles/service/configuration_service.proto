@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package service;
+
+
+option go_package = "github.com/kyawmyintthein/rzcfg/protopb/service";
+
+import "domain/configuration.proto";
+import "domain/error.proto";
+
+service ConfigurationService {
+	rpc GetConfiguration(GetConfigurationRequest) returns (GetConfigurationResponse){}
+}
+
+message GetConfigurationRequest{
+    string appName = 1; 
+    string env = 2;
+} 
+
+message GetConfigurationResponse {
+	domain.Configuration configuration = 1;
+	domain.Error error = 2;
+}

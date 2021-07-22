@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "github.com/kyawmyintthein/rzcfg/protopb/service";
+
+import "domain/event.proto";
+import "domain/error.proto";
+
+service NotificationService {
+	rpc Register(ClientDetail) returns (ClientDetail){}
+	rpc Notify(stream ClientDetail) returns (stream NotificationEvent){}
+}
+
+message ClientDetail {
+	string uuid = 1;
+	string appName = 2;
+	string env = 3;
+	string address = 4;
+	int64 version = 5;
+} 
+
+message NotificationEvent {
+	domain.Event event = 1;
+	domain.Error error = 2;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package domain;
+
+option go_package = "github.com/kyawmyintthein/rzcfg/protopb/domain";
+
+message Error {
+	string code = 1;
+	string message = 2;
+}
