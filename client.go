@@ -41,7 +41,7 @@ type (
 	Callback func(context.Context, Event, interface{})
 
 	SecretsManagerCfg struct {
-		SecretID     string `mapstructure:"secret_id" json:"secret_id" envconfig:"SECRET_ID" required:"true"`
+		SecretID     string `mapstructure:"secret_id" json:"secret_id" envconfig:"SECRET_ID"`
 		VersionStage string `mapstructure:"version_stage" json:"version_stage" envconfig:"VERSION_STAGE" default:"AWSCURRENT"`
 	}
 
@@ -50,7 +50,7 @@ type (
 		ServerAddress                 string            `mapstructure:"config_server_address" json:"config_server_address" envconfig:"CONFIG_SERVER_ADDRESS" required:"true" default:"localhost:7000"`
 		AppName                       string            `mapstructure:"app_name" json:"app_name" envconfig:"APP_NAME" required:"true" default:""`
 		Env                           string            `mapstructure:"env" json:"env" envconfig:"ENV" required:"true" default:"dev"`
-		SecretsManager                SecretsManagerCfg `mapstructure:"secrets_manager" json:"secrets_manager" envconfig:"SECRETS_MANAGER" required:"true"`
+		SecretsManager                SecretsManagerCfg `mapstructure:"secrets_manager" json:"secrets_manager" envconfig:"SECRETS_MANAGER"`
 		IsSecure                      bool              `mapstructure:"is_secure" json:"is_secure" envconfig:"IS_SECURE" default:"true"`
 		EnableAutoReconnect           bool              `mapstructure:"enable_auto_reconnect" json:"enable_auto_reconnect" envconfig:"ENABLE_AUTO_RECONNECT" default:"true"`
 		DialTimeoutInMillisecond      int64             `mapstructure:"dial_timeout_in_millisecond" json:"dial_timeout_in_millisecond" envconfig:"DIAL_TIMEOUT_IN_MILLISECOND" default:"3000"`
@@ -63,7 +63,7 @@ type (
 		AppName                     string            `json:"app_name" envconfig:"APP_NAME" required:"true" default:""`
 		Env                         string            `json:"env" envconfig:"ENV" required:"true" default:"dev"`
 		Version                     int64             `json:"version" envconfig:"VERSION" required:"true"`
-		SecretsManager              SecretsManagerCfg `json:"secrets_manager" envconfig:"SECRETS_MANAGER" required:"true"`
+		SecretsManager              SecretsManagerCfg `json:"secrets_manager" envconfig:"SECRETS_MANAGER"`
 		RequestTimeoutInMillisecond int64             `mapstructure:"request_timeout_in_millisecond" json:"request_timeout_in_millisecond" envconfig:"REQUEST_TIMEOUT_IN_MILLISECOND" default:"5000"`
 	}
 
