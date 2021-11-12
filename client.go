@@ -368,8 +368,9 @@ func (cli *client) retrieveConfigurationDataFromDB(ctx context.Context) error {
 	}
 
 	if resp.Item == nil {
+		err = fmt.Errorf("configuration not found")
 		cli.logger.Error(ctx, err, "failed to retrieve configuration")
-		return fmt.Errorf("configuration not found")
+		return err
 	}
 
 	var config configuration
